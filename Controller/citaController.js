@@ -8,7 +8,7 @@ function create(req,res){
         servicio: req.body.servicio,
         fecha: req.body.fecha,
         hora: req.body.hora,
-        estado: "pendiente"
+        estado: "Pendiente"
     })
 
     // si ya existe cita
@@ -126,11 +126,30 @@ function verTodasCitas(req,res){
     .catch(error=>res.status(500).json({error:error}))
 }
 
+function citasBarberoFecha(req,res){
+
+    const barbero = req.params.id;
+    const fecha = req.params.fecha;
+
+    Cita.find({
+        barbero: barbero,
+        fecha: fecha
+    })
+    .then(citas=>{
+        res.json(citas);
+    })
+    .catch(error=>{
+        res.status(500).json(error);
+    });
+
+}
+
 
 module.exports = {
     create,
     citasCliente,
     cancelarCita,
     actualizarEstadoCita,
-    verTodasCitas
+    verTodasCitas,
+    citasBarberoFecha
 };

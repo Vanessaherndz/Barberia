@@ -1,7 +1,6 @@
 const Barbero = require('../Model/barbero');
 
 // CREATE
-// CREATE
 function create(req, res){
     const barbero = new Barbero({
         nombre: req.body.nombre,

@@ -26,19 +26,41 @@ const login = async (req, res) => {
 };
 
 //guarda el usuario
-const registrar = async (req, res) => {
-    try {
-        const nuevoUsuario = new Usuario(req.body);
-        await nuevoUsuario.save();
-        res.status(201).json(nuevoUsuario);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-};
+function registro(req,res){
+
+    const usuario = new Usuario({
+
+        nombre: req.body.nombre,
+        email: req.body.email,
+        password: req.body.password,
+        rol: "cliente"
+
+    });
+
+    Usuario.findOne({email:req.body.email})
+    .then(usuarioExistente=>{
+
+        if(usuarioExistente){
+            return res.json({
+                mensaje:"El correo ya está registrado"
+            })
+        }
+
+        usuario.save()
+        .then(usuarioGuardado=>{
+            res.json({
+                mensaje:"Usuario registrado correctamente",
+                usuario:usuarioGuardado
+            })
+        })
+
+    })
+    .catch(error=>res.status(500).json(error))
+
+}
 
 
-// Exportamos todas las funciones al final (formato consistente)
 module.exports = { 
     login, 
-    registrar
+    registro
 };

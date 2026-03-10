@@ -6,6 +6,7 @@ const BarberoSchema = new mongoose.Schema({
         required: true
     },
     especialidad: String,
+    foto:String,
     estado: {
         type: Boolean,
         default: true   // activo o inactivo

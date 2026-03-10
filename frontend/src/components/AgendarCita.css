@@ -1,0 +1,30 @@
+.cita-container{
+    text-align:center;
+    margin-top:40px;
+}
+
+.form-box{
+    width:300px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+select,input{
+    padding:8px;
+    margin-top:5px;
+}
+
+button{
+    margin-top:20px;
+    padding:10px;
+    background:#2b7cff;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
