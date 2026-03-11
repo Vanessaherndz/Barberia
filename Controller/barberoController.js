@@ -2,16 +2,28 @@ const Barbero = require('../Model/barbero');
 
 // CREATE
 function create(req, res){
-    const barbero = new Barbero({
+
+const barbero = new Barbero({
+
         nombre: req.body.nombre,
-        telefono: req.body.telefono,
-        especialidad: req.body.especialidad
+        especialidad: req.body.especialidad,
+        foto: req.body.foto
+
     });
 
     barbero.save()
-        .then(() => res.redirect('/barberos'))
-        .catch(err => res.status(500).send({err}));
+        .then(barberoGuardado =>{
+
+        res.json({
+        mensaje:"Barbero agregado correctamente",
+        barbero:barberoGuardado
+        })
+
+    })
+    .catch(err => res.status(500).json(err));
+
 }
+
 
 
 // READ
@@ -38,12 +50,21 @@ function update(req, res){
 
 // DELETE
 function deleted(req, res){
-    const id = req.params.id;
+
+const id = req.params.id;
 
     Barbero.findByIdAndDelete(id)
-        .then(() => res.redirect('/barberos'))
-        .catch(err => res.status(500).send({err}));
+    .then(() => {
+
+    res.json({
+    mensaje:"Barbero eliminado correctamente"
+    })
+
+    })
+    .catch(err => res.status(500).json(err));
+
 }
+
 
 module.exports = {
     create,

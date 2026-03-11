@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function VerBarberos(){
 
 const [barberos,setBarberos] = useState([]);
+const navigate = useNavigate();
 
 useEffect(()=>{
 
@@ -18,6 +20,9 @@ setBarberos(data);
 return(
 
 <div style={{padding:"40px"}}>
+<button className="btn inicio" onClick={()=>navigate("/cliente")}>
+        Ir al Inicio
+        </button>
 
 <h2>Barberos Disponibles</h2>
 

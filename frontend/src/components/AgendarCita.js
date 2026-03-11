@@ -99,6 +99,10 @@ function AgendarCita(){
 
         <div className="cita-container">
 
+            <button className="btn inicio" onClick={()=>navigate("/cliente")}>
+            Ir al Inicio
+            </button>
+
             <h2>Reservar Cita</h2>
 
             <div className="form-box">

@@ -7,6 +7,10 @@ import AgendarCita from "./components/AgendarCita";
 import Registro from "./components/Registro";
 import MisCitas from "./components/MisCitas";
 import VerBarberos from "./components/VerBarberos";
+import PanelAdmin from "./pages/PanelAdmin";
+import AdminBarberos from "./pages/AdminBarbero";
+import AdminServicios from "./pages/AdminServicios";
+
 
 
 function App(){
@@ -28,6 +32,11 @@ function App(){
         <Route path="/miscitas" element={<MisCitas />} />
 
         <Route path="/barberos" element={<VerBarberos/>} />
+
+        <Route path="/admin" element={<PanelAdmin/>} />
+        <Route path="/admin/barberos" element={<AdminBarberos/>}/>
+        <Route path="/admin/servicios" element={<AdminServicios/>}/>
+
 
       </Routes>
 

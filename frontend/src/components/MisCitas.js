@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MisCitas(){
 
 const [citas,setCitas] = useState([]);
 
+const navigate = useNavigate();
 const cliente = localStorage.getItem("usuarioId");
 
 useEffect(()=>{
@@ -37,6 +39,10 @@ window.location.reload();
 return(
 
 <div style={{padding:"40px"}}>
+
+    <button className="btn inicio" onClick={()=>navigate("/cliente")}>
+        Ir al Inicio
+        </button>
 
 <h2>Mis Citas</h2>
 

@@ -40,11 +40,11 @@ const navigate = useNavigate();
                 </button>
 
 
-                <button onClick={()=>navigate("/miscitas")}>
+                <button className="btn MisCitas" onClick={()=>navigate("/miscitas")}>
                 Ver Mis Citas
                 </button>
 
-                <button onClick={cerrarSesion}>
+                <button className="btn salir" onClick={cerrarSesion}>
                     Salir
                     </button>
 

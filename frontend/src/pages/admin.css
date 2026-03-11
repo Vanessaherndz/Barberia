@@ -1,0 +1,26 @@
+.admin-container{
+text-align:center;
+padding:40px;
+}
+
+.admin-menu{
+display:flex;
+flex-direction:column;
+gap:20px;
+max-width:300px;
+margin:auto;
+}
+
+.admin-menu button{
+padding:15px;
+font-size:16px;
+background-color:#222;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.admin-menu button:hover{
+background-color:#444;
+}
