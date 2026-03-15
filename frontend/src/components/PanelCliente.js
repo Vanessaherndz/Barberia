@@ -21,13 +21,9 @@ const navigate = useNavigate();
 
         <div className="panel-cliente">
 
-            <img 
-            src="https://static.vecteezy.com/system/resources/thumbnails/019/495/567/small/barber-shop-and-shaving-machine-logo-design-vector.jpg"
-            alt="logo"
-            className="logo"
-            />
+            
 
-            <h1>Bienvenido Cliente </h1>
+            <h1 class="bienvenida">Bienvenido <span>Cliente</span></h1>
 
             <div className="card-panel">
                 <div className="botones">

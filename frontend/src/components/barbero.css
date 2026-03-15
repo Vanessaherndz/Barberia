@@ -1,0 +1,97 @@
+/* CONTENEDOR PRINCIPAL */
+
+.barberos-container{
+    min-height:100vh;
+    padding:40px;
+
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:white;
+    text-align:center;
+}
+
+/* TITULO */
+
+.titulo-barberos{
+    font-size:32px;
+    margin-bottom:40px;
+    color:#d4af37;
+}
+
+
+/* GRID DE BARBEROS */
+
+.barberos-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+
+/* TARJETA */
+
+.barbero-card{
+    background:#1c1c1c;
+    border-radius:12px;
+    padding:25px;
+    width:230px;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+
+.barbero-card:hover{
+    transform:translateY(-8px);
+}
+
+
+/* IMAGEN */
+
+.barbero-img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #d4af37;
+    margin-bottom:15px;
+}
+
+
+/* TEXTO */
+
+.barbero-card h3{
+    margin:10px 0;
+}
+
+.especialidad{
+    color:#ccc;
+    font-size:14px;
+}
+
+.estado{
+    margin-top:5px;
+    font-weight:bold;
+    color:#d4af37;
+}
+
+
+/* BOTON */
+
+.btn.inicio{
+    background:#d4af37;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.btn.inicio:hover{
+    background:#b8962e;
+}

@@ -1,26 +1,44 @@
-body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#1e1e1e,#3a3a3a);
+.panel-cliente{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* contenedor principal */
+/* Imagen de fondo como marca de agua */
+.panel-cliente::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
 
-.panel-cliente{
+    background-image: url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    opacity: 0.20; /* controla que tan suave se vea */
+    filter: grayscale(100%); /* opcional para que no se vea muy fuerte */
 
-    min-height:100vh;
+    z-index: 0;
+}
+
+/* Para que el contenido quede encima del fondo */
+.panel-cliente > *{
+    position: relative;
+    z-index: 1;
 }
 
 /* logo */
 
 .logo{
-    width:180px;
-    margin-bottom:10px;
+    width:250px;
+    margin-bottom:20px;
 }
 
 /* titulo */
@@ -30,7 +48,7 @@ body{
     color:white;
     font-size:40px;
     margin-bottom:40px;
-    text-shadow:2px 2px 5px black;
+    text-shadow:2px 2px 5px rgb(197, 168, 9);
 
 }
 
@@ -90,33 +108,33 @@ body{
 
 .btn-agendar{
 
-    background:#3498db;
+    background:#d5b309;
 
-    color:white;
+    color:rgb(17, 16, 16);
 
 }
 
 .btn-barberos{
 
-    background:#27ae60;
+    background:#d5b309;
 
-    color:white;
+    color:rgb(15, 15, 15);
 
 }
 
 .btn-MisCitas{
 
-    background:#9b59b6;
+    background:#d5b309;
 
-    color:white;
+    color:rgb(15, 15, 15);
 
 }
 
 .btn-salir{
 
-    background:#e74c3c;
+    background:#d5b309;
 
-    color:white;
+    color:rgb(9, 8, 8);
 
     margin-top:20px;
 
@@ -133,3 +151,14 @@ body{
     box-shadow:0px 5px 15px rgba(0,0,0,0.3);
 
 }
+.bienvenida{
+    font-size: 42px;
+    color:#0c0c0a;
+    letter-spacing:2px;
+    margin-top:20px;
+}
+
+.bienvenida span{
+    color:rgb(11, 11, 11);
+}
+

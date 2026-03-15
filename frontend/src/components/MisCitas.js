@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./miscitas.css";
 
 function MisCitas(){
 
@@ -38,60 +39,68 @@ window.location.reload();
 
 return(
 
-<div style={{padding:"40px"}}>
+<div className="citas-container">
 
-    <button className="btn inicio" onClick={()=>navigate("/cliente")}>
-        Ir al Inicio
-        </button>
+  <button className="btn inicio" onClick={()=>navigate("/cliente")}>
+      Ir al Inicio
+  </button>
 
-<h2>Mis Citas</h2>
+  <h2 className="titulo-citas">Mis Citas</h2>
 
-<table border="1" cellPadding="10">
+  <div className="tabla-container">
 
-<thead>
+  <table className="tabla-citas">
 
-<tr>
-<th>Barbero</th>
-<th>Servicio</th>
-<th>Fecha</th>
-<th>Hora</th>
-<th>Estado</th>
-<th>Acción</th>
-</tr>
+    <thead>
+      <tr>
+        <th>Barbero</th>
+        <th>Servicio</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Estado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
 
-</thead>
+    <tbody>
 
-<tbody>
+      {citas.map(cita => (
 
-{citas.map(cita=>(
+        <tr key={cita._id}>
 
-<tr key={cita._id}>
+          <td>{cita.barbero?.nombre}</td>
+          <td>{cita.servicio?.nombre}</td>
+          <td>{new Date(cita.fecha).toLocaleDateString()}</td>
+          <td>{cita.hora}</td>
 
-<td>{cita.barbero?.nombre}</td>
-<td>{cita.servicio?.nombre}</td>
-<td>{new Date(cita.fecha).toLocaleDateString()}</td>
-<td>{cita.hora}</td>
-<td>{cita.estado}</td>
+          <td className={`estado ${cita.estado}`}>
+            {cita.estado}
+          </td>
 
-<td>
+          <td>
 
-{cita.estado !== "cancelada" && cita.estado !== "completada" && (
+            {cita.estado !== "cancelada" && cita.estado !== "completada" && (
 
-<button onClick={()=>cancelarCita(cita._id)}>
-Cancelar
-</button>
+              <button 
+                className="btn-cancelar"
+                onClick={()=>cancelarCita(cita._id)}
+              >
+                Cancelar
+              </button>
 
-)}
+            )}
 
-</td>
+          </td>
 
-</tr>
+        </tr>
 
-))}
+      ))}
 
-</tbody>
+    </tbody>
 
-</table>
+  </table>
+
+  </div>
 
 </div>
 

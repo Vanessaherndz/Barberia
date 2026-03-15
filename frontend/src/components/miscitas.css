@@ -1,0 +1,119 @@
+
+.citas-container{
+    min-height:100vh;
+    padding:40px;
+
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+}
+
+
+
+.titulo-citas{
+    font-size:32px;
+    margin-bottom:30px;
+    color:#d4af37;
+}
+
+
+
+
+.tabla-container{
+    display:flex;
+    justify-content:center;
+}
+
+.tabla-citas{
+    width:90%;
+    max-width:900px;
+    border-collapse:collapse;
+    background:#1c1c1c;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.6);
+}
+
+
+
+
+.tabla-citas thead{
+    background:#d4af37;
+    color:black;
+    font-weight:bold;
+}
+
+.tabla-citas th{
+    padding:14px;
+}
+
+
+
+.tabla-citas td{
+    padding:12px;
+    border-bottom:1px solid #333;
+}
+
+.tabla-citas tr:hover{
+    background:#2a2a2a;
+}
+
+
+
+
+.estado{
+    font-weight:bold;
+}
+
+.estado.pendiente{
+    color:#f1c40f;
+}
+
+.estado.confirmada{
+    color:#2ecc71;
+}
+
+.estado.cancelada{
+    color:#e74c3c;
+}
+
+.estado.completada{
+    color:#3498db;
+}
+
+
+
+
+.btn-cancelar{
+    background:#e74c3c;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+}
+
+.btn-cancelar:hover{
+    background:#c0392b;
+}
+
+
+
+
+.btn.inicio{
+    background:#d4af37;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.btn.inicio:hover{
+    background:#b8962e;
+}

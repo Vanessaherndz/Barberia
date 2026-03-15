@@ -1,30 +1,117 @@
 .cita-container{
-    text-align:center;
-    margin-top:40px;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.cita-container::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+
+    background-size:cover;
+    background-position:center;
+    opacity:0.35;
+
+    z-index:0;
+}
+
+.cita-container > *{
+    position:relative;
+    z-index:1;
+}
+
+.inicio{
+    position:absolute;
+    top:25px;
+    right:30px;
+
+    background:#d4af37;
+    color:black;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.inicio:hover{
+    background:#f1c40f;
+    transform:scale(1.05);
 }
 
 .form-box{
-    width:300px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
+    background:#1a1a1a;
+    padding:40px;
+    border-radius:15px;
+    width:380px;
+
+    border:1px solid #333;
+    box-shadow:0 15px 35px rgba(0,0,0,0.7);
 }
 
-label{
-    margin-top:10px;
-    font-weight:bold;
+.cita-container {
+  display: flex;
+  flex-direction: column; /* coloca los elementos uno debajo del otro */
+  align-items: center; /* centra horizontalmente */
+  justify-content: center;
+  text-align: center;
+}
+.cita-container h1{
+  margin-bottom: 25px;
 }
 
-select,input{
-    padding:8px;
-    margin-top:5px;
-}
 
-button{
-    margin-top:20px;
+.form-box label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:600;
+    color:#f5f5f5;
+}
+.form-box select,
+.form-box input{
+    width:100%;
     padding:10px;
-    background:#2b7cff;
+    border-radius:6px;
+    border:1px solid #444;
+    background:#2b2b2b;
     color:white;
+    font-size:14px;
+}
+
+.form-box select:focus,
+.form-box input:focus{
+    outline:none;
+    border:1px solid #d4af37;
+}
+.agendar{
+    width:100%;
+    margin-top:25px;
+
+    background:#d4af37;
+    color:black;
     border:none;
+    padding:14px;
+    border-radius:8px;
+
+    font-size:16px;
+    font-weight:bold;
     cursor:pointer;
+
+    transition:0.3s;
+}
+
+.agendar:hover{
+    background:#f1c40f;
+    transform:scale(1.03);
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./barbero.css";
 
 function VerBarberos(){
 
@@ -8,52 +9,48 @@ const navigate = useNavigate();
 
 useEffect(()=>{
 
-fetch("http://localhost:4000/barberos")
-.then(res=>res.json())
-.then(data=>{
-setBarberos(data);
-})
+        fetch("http://localhost:4000/barberos")
+        .then(res=>res.json())
+        .then(data=>{
+        setBarberos(data);
+        })
 
 },[])
 
 
 return(
 
-<div style={{padding:"40px"}}>
-<button className="btn inicio" onClick={()=>navigate("/cliente")}>
-        Ir al Inicio
-        </button>
+        <div className="barberos-container">
 
-<h2>Barberos Disponibles</h2>
+  <button className="btn inicio" onClick={()=>navigate("/cliente")}>
+      Ir al Inicio
+  </button>
 
-<div style={{display:"flex",gap:"20px",flexWrap:"wrap"}}>
+  <h2 className="titulo-barberos">Barberos Disponibles</h2>
 
-{barberos.map(barbero=>(
+  <div className="barberos-grid">
 
-<div key={barbero._id} style={{
-border:"1px solid #ccc",
-padding:"20px",
-width:"200px",
-textAlign:"center"
-}}>
+    {barberos.map(barbero => (
 
-<img
-src={barbero.foto}
-alt={barbero.nombre}
-style={{width:"150px",height:"150px",objectFit:"cover"}}
-/>
+      <div key={barbero._id} className="barbero-card">
 
-<h3>{barbero.nombre}</h3>
+        <img 
+          src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6" 
+          alt={barbero.nombre}
+          className="barbero-img"
+        />
 
-<p>{barbero.especialidad}</p>
+        <h3>{barbero.nombre}</h3>
 
-<p>{barbero.estado}</p>
+        <p className="especialidad">{barbero.especialidad}</p>
 
-</div>
+        <p className="estado">{barbero.estado}</p>
 
-))}
+      </div>
 
-</div>
+    ))}
+
+  </div>
 
 </div>
 
