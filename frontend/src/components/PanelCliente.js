@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 function PanelCliente(){
 const navigate = useNavigate();
         const cerrarSesion = () => {
@@ -18,7 +19,7 @@ const navigate = useNavigate();
 
     return(
 
-        <div className="panel-container">
+        <div className="panel-cliente">
 
             <img 
             src="https://static.vecteezy.com/system/resources/thumbnails/019/495/567/small/barber-shop-and-shaving-machine-logo-design-vector.jpg"
@@ -28,26 +29,27 @@ const navigate = useNavigate();
 
             <h1>Bienvenido Cliente </h1>
 
-            <div className="panel-box">
+            <div className="card-panel">
+                <div className="botones">
 
-                <button className="btn agendar" onClick={()=>navigate("/agendar")}>
+                <button className="btn btn-agendar" onClick={()=>navigate("/agendar")}>
                      Agendar cita
                 </button>
 
 
-                <button className="btn Barberos" onClick={()=>navigate("/barberos")}>
+                <button className="btn btn-barberos" onClick={()=>navigate("/barberos")}>
                 Ver Barberos
                 </button>
 
 
-                <button className="btn MisCitas" onClick={()=>navigate("/miscitas")}>
+                <button className="btn btn-MisCitas" onClick={()=>navigate("/miscitas")}>
                 Ver Mis Citas
                 </button>
 
-                <button className="btn salir" onClick={cerrarSesion}>
+                <button className="btn btn-salir" onClick={cerrarSesion}>
                     Salir
                     </button>
-
+                </div>
 
             </div>
 

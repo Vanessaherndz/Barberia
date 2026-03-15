@@ -10,6 +10,8 @@ import VerBarberos from "./components/VerBarberos";
 import PanelAdmin from "./pages/PanelAdmin";
 import AdminBarberos from "./pages/AdminBarbero";
 import AdminServicios from "./pages/AdminServicios";
+import AdminCitas from "./pages/AdminCitas";
+import AdminDashboard from "./pages/AdminDashboard";
 
 
 
@@ -36,6 +38,8 @@ function App(){
         <Route path="/admin" element={<PanelAdmin/>} />
         <Route path="/admin/barberos" element={<AdminBarberos/>}/>
         <Route path="/admin/servicios" element={<AdminServicios/>}/>
+        <Route path="/admin/citas" element={<AdminCitas />} />
+        <Route path="/admin/reportes" element={<AdminDashboard />} />
 
 
       </Routes>

@@ -1,13 +1,16 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const reporteController = require('../Controller/reporteController')
+const reporteController = require('../Controller/reporteController');
 
-router.get('/fecha/:fecha', reporteController.citasPorFecha)
+router.get("/estados", reporteController.reporteEstados);
 
-router.get('/completadas', reporteController.citasCompletadas)
+router.get("/barbero-top", reporteController.barberoTop);
 
-router.get('/servicios', reporteController.totalServicios)
+router.get("/servicio-top", reporteController.servicioTop);
 
+router.get("/citas-dia",  reporteController.citasPorDia);
+
+router.get("/citas-mes",  reporteController.citasPorMes);
 
 module.exports = router;

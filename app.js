@@ -17,7 +17,7 @@ const citaRoutes = require('./Router/citas');
 const usuarioRoutes = require('./Router/usuarios');
 const reporteRouter = require('./Router/reportes');
 
-app.use('/reportes', reporteRouter);
+app.use('/reporte', reporteRouter);
 app.use('/usuarios', usuarioRoutes);
 app.use('/barberos', barberoRoutes);
 app.use('/servicios', servicioRoutes);

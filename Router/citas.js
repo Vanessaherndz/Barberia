@@ -13,7 +13,7 @@ router.put('/cancelar/:id', citaController.cancelarCita);
 
 router.put('/estado/:id', citaController.actualizarEstadoCita);//admin
 
-router.get('/todas', citaController.verTodasCitas)//admin
+router.get('/admin', citaController.verTodasCitas);//admin
 
 router.get("/barbero/:id/:fecha", citaController.citasBarberoFecha);
 
