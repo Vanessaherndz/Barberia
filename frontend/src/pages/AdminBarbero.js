@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
+import "./barbero.css"
 
 function AdminBarberos(){
 
@@ -133,142 +134,119 @@ const eliminarBarbero = async (id)=>{
 
 
 return(
+        <div className="barberos-admin-container">
 
-<div style={{padding:"40px"}}>
+            <button
+                className="btn-volver"
+                onClick={()=>navigate("/admin")}
+            >
+            Ir al panel principal
+            </button>
 
-<button
-    onClick={()=>navigate("/admin")}
-    style={{
-    marginBottom:"20px",
-    padding:"10px",
-    cursor:"pointer"
-}}
->
+        <h2 className="titulo-admin">Gestión de Barberos</h2>
 
-⬅ Ir al panel principal
-
-    </button>
-
-
-        <h2>Gestión de Barberos</h2>
-
+        <div className="form-barbero">
 
         <h3>{editando ? "Editar Barbero" : "Agregar Nuevo Barbero"}</h3>
 
-
         <input
-            placeholder="Nombre"
-            value={nombre}
-            onChange={(e)=>setNombre(e.target.value)}
+        placeholder="Nombre"
+        value={nombre}
+        onChange={(e)=>setNombre(e.target.value)}
         />
 
-        <br/><br/>
-
-
         <input
-            placeholder="Especialidad"
-            value={especialidad}
-            onChange={(e)=>setEspecialidad(e.target.value)}
+        placeholder="Especialidad"
+        value={especialidad}
+        onChange={(e)=>setEspecialidad(e.target.value)}
         />
 
-        <br/><br/>
-
-
         <input
-            placeholder="URL Foto"
-            value={foto}
-            onChange={(e)=>setFoto(e.target.value)}
+        placeholder="URL Foto"
+        value={foto}
+        onChange={(e)=>setFoto(e.target.value)}
         />
 
-        <br/><br/>
+        <button
+        className="btn-guardar"
+        onClick={editando ? actualizarBarbero : agregarBarbero}
+        >
+        {editando ? "Actualizar Barbero" : "Agregar Barbero"}
+        </button>
 
+        </div>
 
-            <button
-                onClick={editando ? actualizarBarbero : agregarBarbero}
-            >
+        <h3 className="titulo-tabla">Barberos Registrados</h3>
 
-            {editando ? "Actualizar Barbero" : "Agregar Barbero"}
+        <div className="tabla-container">
 
-    </button>
+        <table className="tabla-barberos">
 
+        <thead>
 
-    <hr/>
+        <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
 
+        </thead>
 
-    <h3>Barberos Registrados</h3>
+        <tbody>
 
+        {barberos.map(barbero=>(
 
-    <table border="1" cellPadding="10">
+        <tr key={barbero._id}>
 
-    <thead>
+        <td>
 
-    <tr>
-    <th>Foto</th>
-    <th>Nombre</th>
-    <th>Especialidad</th>
-    <th>Editar</th>
-    <th>Eliminar</th>
-    </tr>
-
-    </thead>
-
-
-    <tbody>
-
-     {barberos.map(barbero=>(
-
-    <tr key={barbero._id}>
-
-    <td>
-
-    <img
+        <img
         src={barbero.foto}
         alt=""
-        width="80"
-    />
+        className="foto-barbero"
+        />
 
-    </td>
+        </td>
 
-    <td>{barbero.nombre}</td>
+        <td>{barbero.nombre}</td>
 
-    <td>{barbero.especialidad}</td>
+        <td>{barbero.especialidad}</td>
 
+        <td>
 
-    <td>
-
-    <button
-    onClick={()=>editarBarbero(barbero)}>
-
+        <button
+            className="btn-editar"
+            onClick={()=>editarBarbero(barbero)}
+            >
         Editar
+        </button>
 
-    </button>
+        </td>
 
-    </td>
+        <td>
 
+        <button
+            className="btn-eliminar"
+            onClick={()=>eliminarBarbero(barbero._id)}
+            >
+        Eliminar
+        </button>
 
-    <td>
+        </td>
 
-    <button
-        onClick={()=>eliminarBarbero(barbero._id)}>
+        </tr>
 
-    Eliminar
+        ))}
 
-    </button>
+        </tbody>
 
-    </td>
+        </table>
 
+        </div>
 
-    </tr>
-
-    ))}
-
-    </tbody>
-
-    </table>
-
-
-    </div>
-
+        </div>
 )
 
 }

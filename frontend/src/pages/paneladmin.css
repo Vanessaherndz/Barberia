@@ -1,0 +1,69 @@
+
+.admin-container{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+}
+
+
+.admin-titulo{
+    font-size:40px;
+    margin-bottom:40px;
+    color:#d4af37;
+}
+
+
+
+
+.admin-menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:25px;
+    width:100%;
+    max-width:600px;
+}
+
+
+
+
+.admin-btn{
+    background:#1c1c1c;
+    color:white;
+    border:2px solid #d4af37;
+    padding:18px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.admin-btn:hover{
+    background:#d4af37;
+    color:black;
+    transform:scale(1.05);
+}
+
+
+
+
+.admin-btn.salir{
+    border:2px solid #e74c3c;
+}
+
+.admin-btn.salir:hover{
+    background:#e74c3c;
+    color:white;
+}

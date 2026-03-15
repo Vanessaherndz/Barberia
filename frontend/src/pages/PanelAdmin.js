@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./admin.css";
+import "./paneladmin.css";
 
 function PanelAdmin(){
 
@@ -10,34 +10,33 @@ return(
 
     <div className="admin-container">
 
-        <h1>Panel Administrador</h1>
+    <h1 className="admin-titulo">Panel Administrador</h1>
 
-            <div className="admin-menu">
+    <div className="admin-menu">
 
-                <button onClick={()=>navigate("/admin/barberos")}>
-                Agregar Barbero
-                </button>
+        <button className="admin-btn" onClick={()=>navigate("/admin/barberos")}>
+            Agregar Barbero
+        </button>
 
-                <button onClick={()=>navigate("/admin/servicios")}>
-                Agregar Servicio
-                </button>
+        <button className="admin-btn" onClick={()=>navigate("/admin/servicios")}>
+            Agregar Servicio
+        </button>
 
-                <button onClick={()=>navigate("/admin/citas")}>
-                Ver Citas
-                </button>
+        <button className="admin-btn" onClick={()=>navigate("/admin/citas")}>
+            Ver Citas
+        </button>
 
-                <button onClick={()=>navigate("/admin/reportes")}>
-                Reportes
-                </button>
+        <button className="admin-btn" onClick={()=>navigate("/admin/reportes")}>
+            Reportes
+        </button>
 
-                <button onClick={()=>navigate("/")}>
-                Cerrar Sesión
-                </button>
+        <button className="admin-btn salir" onClick={()=>navigate("/")}>
+            Cerrar Sesión
+        </button>
 
-            </div>
+    </div>
 
-        </div>
-
+</div>
     )
 
 }

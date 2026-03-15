@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-/* Imagen de fondo como marca de agua */
+
 .panel-cliente::before{
     content: "";
     position: absolute;
@@ -22,26 +22,25 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    opacity: 0.20; /* controla que tan suave se vea */
-    filter: grayscale(100%); /* opcional para que no se vea muy fuerte */
+    opacity: 0.20; 
+    filter: grayscale(100%); 
 
     z-index: 0;
 }
 
-/* Para que el contenido quede encima del fondo */
+
 .panel-cliente > *{
     position: relative;
     z-index: 1;
 }
 
-/* logo */
 
 .logo{
     width:250px;
     margin-bottom:20px;
 }
 
-/* titulo */
+
 
 .titulo{
 
@@ -52,7 +51,7 @@
 
 }
 
-/* tarjeta */
+
 
 .card-panel{
 
@@ -68,7 +67,7 @@
 
 }
 
-/* contenedor botones */
+
 
 .botones{
 
@@ -82,7 +81,7 @@
 
 }
 
-/* botones */
+
 
 .btn{
 
@@ -104,7 +103,7 @@
 
 }
 
-/* colores */
+
 
 .btn-agendar{
 
@@ -142,7 +141,7 @@
 
 }
 
-/* efecto hover */
+
 
 .btn:hover{
 

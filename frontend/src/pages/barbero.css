@@ -1,0 +1,147 @@
+
+.barberos-admin-container{
+min-height:100vh;
+padding:40px;
+text-align:center;
+
+background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+url("https://espacioneon.com/wp-content/uploads/2026/02/mockup-neon-barber-shop-barberia-industrial-moderna-900x900.png");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+}
+
+.btn-volver{
+position:absolute;
+top:20px;
+right:30px;
+background:#d4af37;
+border:none;
+padding:10px 16px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn-volver:hover{
+background:#b8962e;
+}
+
+
+
+.titulo-admin{
+font-size:32px;
+margin-bottom:25px;
+color:#d4af37;
+}
+
+
+
+.form-barbero{
+background:#1c1c1c;
+padding:25px;
+border-radius:10px;
+width:320px;
+margin:auto;
+margin-bottom:40px;
+box-shadow:0 5px 20px rgba(0,0,0,0.6);
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.form-barbero input{
+padding:10px;
+border:none;
+border-radius:6px;
+}
+
+
+
+.btn-guardar{
+background:#d4af37;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn-guardar:hover{
+background:#b8962e;
+}
+
+
+
+
+.tabla-container{
+display:flex;
+justify-content:center;
+}
+
+.tabla-barberos{
+border-collapse:collapse;
+background:#1c1c1c;
+width:80%;
+max-width:800px;
+box-shadow:0 5px 20px rgba(0,0,0,0.6);
+border-radius:10px;
+overflow:hidden;
+}
+
+.tabla-barberos thead{
+background:#d4af37;
+color:black;
+}
+
+.tabla-barberos th,
+.tabla-barberos td{
+padding:12px;
+border-bottom:1px solid #333;
+}
+
+.tabla-barberos tr:hover{
+background:#2a2a2a;
+}
+
+
+
+
+.foto-barbero{
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:50%;
+border:2px solid #d4af37;
+}
+
+
+
+
+.btn-editar{
+background:#3498db;
+border:none;
+padding:8px 12px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.btn-editar:hover{
+background:#2980b9;
+}
+
+.btn-eliminar{
+background:#e74c3c;
+border:none;
+padding:8px 12px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.btn-eliminar:hover{
+background:#c0392b;
+}
