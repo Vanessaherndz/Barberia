@@ -14,14 +14,14 @@ const registrarUsuario = async ()=>{
 const respuesta = await fetch("http://localhost:4000/usuarios/registro",{
 
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-nombre,
-email,
-password
-})
+    headers:{
+    "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+    nombre,
+    email,
+    password
+    })
 
 });
 
@@ -35,39 +35,39 @@ navigate("/");
 
 return(
 
-<div className="login-container">
+    <div className="login-container">
 
-<div className="login-box">
+            <div className="login-box">
 
-<h2>Registro</h2>
+            <h2>Registro</h2>
 
-<input
-type="text"
-placeholder="Nombre"
-onChange={(e)=>setNombre(e.target.value)}
-/>
+            <input
+            type="text"
+            placeholder="Nombre"
+            onChange={(e)=>setNombre(e.target.value)}
+            />
 
-<input
-type="email"
-placeholder="Correo"
-onChange={(e)=>setEmail(e.target.value)}
-/>
+            <input
+            type="email"
+            placeholder="Correo"
+            onChange={(e)=>setEmail(e.target.value)}
+            />
 
-<input
-type="password"
-placeholder="Contraseña"
-onChange={(e)=>setPassword(e.target.value)}
-/>
+            <input
+            type="password"
+            placeholder="Contraseña"
+            onChange={(e)=>setPassword(e.target.value)}
+            />
 
-<button onClick={registrarUsuario}>
-Registrarse
-</button>
+            <button onClick={registrarUsuario}>
+            Registrarse
+            </button>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-)
+    )
 
 }
 

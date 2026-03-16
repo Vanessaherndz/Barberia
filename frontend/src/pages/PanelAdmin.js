@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./paneladmin.css";
+import BotonCerrarSesion from "../components/BotonCerrarSesion";
 
 function PanelAdmin(){
 
@@ -30,9 +31,7 @@ return(
             Reportes
         </button>
 
-        <button className="admin-btn salir" onClick={()=>navigate("/")}>
-            Cerrar Sesión
-        </button>
+        <BotonCerrarSesion/>
 
     </div>
 

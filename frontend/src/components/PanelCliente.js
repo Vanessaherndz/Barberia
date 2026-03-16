@@ -1,21 +1,14 @@
 import React from "react";
 import "./PanelCliente.css";
 import { useNavigate } from "react-router-dom";
+import BotonCerrarSesion from "./BotonCerrarSesion";
 
 
 
 
 function PanelCliente(){
 const navigate = useNavigate();
-        const cerrarSesion = () => {
-
-        localStorage.removeItem("usuarioId");
-        localStorage.removeItem("usuarioNombre");
-        localStorage.removeItem("usuarioRol");
-
-        navigate("/");
-
-        }
+      
 
     return(
 
@@ -23,7 +16,7 @@ const navigate = useNavigate();
 
             
 
-            <h1 class="bienvenida">Bienvenido <span>Cliente</span></h1>
+            <h1 className="bienvenida">Bienvenido <span>Cliente</span></h1>
 
             <div className="card-panel">
                 <div className="botones">
@@ -42,9 +35,7 @@ const navigate = useNavigate();
                 Ver Mis Citas
                 </button>
 
-                <button className="btn btn-salir" onClick={cerrarSesion}>
-                    Salir
-                    </button>
+                <BotonCerrarSesion/>
                 </div>
 
             </div>

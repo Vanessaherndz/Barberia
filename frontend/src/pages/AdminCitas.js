@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./citasbarberoadmin.css"
+import BotonVolver from "../components/botonvolver";
 
 function AdminCitas() {
-  const navigate = useNavigate();
+ 
 
   const [citas, setCitas] = useState([]);
   const [barberos, setBarberos] = useState([]);
   const [filtroBarbero, setFiltroBarbero] = useState("");
 
-  // Cargar  citas
   const cargarCitas = () => {
     fetch("http://localhost:4000/citas/admin")
       .then((res) => res.json())
@@ -25,7 +24,7 @@ function AdminCitas() {
       .catch((error) => console.error(error));
   };
 
-  //  datos al iniciar
+  
   useEffect(() => {
     cargarCitas();
     cargarBarberos();
@@ -57,145 +56,139 @@ function AdminCitas() {
   return (
     <div className="citas-admin-container">
 
-<button
-className="btn-volver"
-onClick={() => navigate("/admin")}
->
-⬅ Ir al panel principal
-</button>
+      <BotonVolver/>
 
-<h2 className="titulo-admin">Gestión de Citas</h2>
+      <h2 className="titulo-admin">Gestión de Citas</h2>
 
 
-{}
+      {}
 
 <div className="filtro-barbero">
 
-<label>Filtrar por barbero:</label>
+    <label>Filtrar por barbero:</label>
 
-<select
-value={filtroBarbero}
-onChange={(e) => setFiltroBarbero(e.target.value)}
->
+    <select
+      value={filtroBarbero}
+      onChange={(e) => setFiltroBarbero(e.target.value)}
+      >
 
-<option value="">Todos</option>
+    <option value="">Todos</option>
 
-{barberos.map((barbero) => (
+    {barberos.map((barbero) => (
 
-<option key={barbero._id} value={barbero._id}>
-{barbero.nombre}
-</option>
+    <option key={barbero._id} value={barbero._id}>{barbero.nombre}
+    </option>
 
-))}
+    ))}
 
-</select>
+    </select>
 
-</div>
+    </div>
 
 
-{}
+    {}
 
-<div className="tabla-container">
+    <div className="tabla-container">
 
-<table className="tabla-citas-admin">
+      <table className="tabla-citas-admin">
 
-<thead>
+        <thead>
 
-<tr>
-<th>Cliente</th>
-<th>Barbero</th>
-<th>Servicio</th>
-<th>Fecha</th>
-<th>Hora</th>
-<th>Estado</th>
-<th>Acciones</th>
-</tr>
+           <tr>
+            <th>Cliente</th>
+            <th>Barbero</th>
+            <th>Servicio</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
 
-</thead>
+          </thead>
 
-<tbody>
+          <tbody>
 
-{citasFiltradas.map((cita) => (
+          {citasFiltradas.map((cita) => (
 
-<tr key={cita._id}>
+          <tr key={cita._id}>
 
-<td>{cita.cliente?.nombre || cita.cliente?.usuario || "Sin cliente"}</td>
+          <td>{cita.cliente?.nombre || cita.cliente?.usuario || "Sin cliente"}</td>
 
-<td>{cita.barbero?.nombre || "Sin barbero"}</td>
+          <td>{cita.barbero?.nombre || "Sin barbero"}</td>
 
-<td>{cita.servicio?.nombre || "Sin servicio"}</td>
+          <td>{cita.servicio?.nombre || "Sin servicio"}</td>
 
-<td>{new Date(cita.fecha).toLocaleDateString()}</td>
+          <td>{new Date(cita.fecha).toLocaleDateString()}</td>
 
-<td>
-{new Date(`1970-01-01T${cita.hora}`).toLocaleTimeString([], {
-hour: "2-digit",
-minute: "2-digit",
-})}
-</td>
+          <td>
+            {new Date(`1970-01-01T${cita.hora}`).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            })}
+          </td>
 
-<td className={`estado ${cita.estado}`}>
-{cita.estado}
-</td>
+          <td className={`estado ${cita.estado}`}>
+            {cita.estado}
+          </td>
 
-<td className="acciones">
+          <td className="acciones">
 
-{cita.estado?.toLowerCase() === "pendiente" && (
+            {cita.estado?.toLowerCase() === "pendiente" && (
 
-<>
-<button
-className="btn-confirmar"
-onClick={() => cambiarEstado(cita._id, "confirmada")}
->
-Confirmar
-</button>
+          <>
+          <button
+            className="btn-confirmar"
+            onClick={() => cambiarEstado(cita._id, "confirmada")}
+            >
+            Confirmar
+          </button>
 
-<button
-className="btn-cancelar"
-onClick={() => cambiarEstado(cita._id, "cancelada")}
->
-Cancelar
-</button>
-</>
+          <button
+            className="btn-cancelar"
+            onClick={() => cambiarEstado(cita._id, "cancelada")}
+            >
+            Cancelar
+          </button>
+          </>
 
-)}
+          )}
 
-{cita.estado === "confirmada" && (
+          {cita.estado === "confirmada" && (
 
-<>
-<button
-className="btn-completar"
-onClick={() => cambiarEstado(cita._id, "completada")}
->
-Completar
-</button>
+          <>
+          <button
+            className="btn-completar"
+            onClick={() => cambiarEstado(cita._id, "completada")}
+            >
+            Completar
+          </button>
 
-<button
-className="btn-cancelar"
-onClick={() => cambiarEstado(cita._id, "cancelada")}
->
-Cancelar
-</button>
-</>
+          <button
+            className="btn-cancelar"
+            onClick={() => cambiarEstado(cita._id, "cancelada")}
+            >
+            Cancelar
+          </button>
+          </>
 
-)}
+          )}
 
-{cita.estado === "cancelada" && <span className="cancelada">Cancelada</span>}
-{cita.estado === "completada" && <span className="finalizada">Finalizada</span>}
+          {cita.estado === "cancelada" && <span className="cancelada">Cancelada</span>}
+          {cita.estado === "completada" && <span className="finalizada">Finalizada</span>}
 
-</td>
+          </td>
 
-</tr>
+          </tr>
 
-))}
+          ))}
 
-</tbody>
+        </tbody>
 
-</table>
+      </table>
 
-</div>
+    </div>
 
-</div>
+  </div>
   );
 }
 

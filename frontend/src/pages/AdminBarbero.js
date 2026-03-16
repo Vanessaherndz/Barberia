@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
-import { useNavigate } from "react-router-dom";
-import "./barbero.css"
+import "./barbero.css";
+import BotonVolver from "../components/botonvolver";
 
 function AdminBarberos(){
 
-const navigate = useNavigate();
 
 const [barberos,setBarberos] = useState([]);
 
@@ -65,8 +64,6 @@ const data = await respuesta.json();
 }
 
 
-
-// EDITAR BARBERO
 const editarBarbero = (barbero)=>{
 
     setNombre(barbero.nombre);
@@ -79,9 +76,6 @@ const editarBarbero = (barbero)=>{
 
 }
 
-
-
-// ACTUALIZAR BARBERO
 const actualizarBarbero = async ()=>{
 
 const respuesta = await fetch("http://localhost:4000/barberos/editar",{
@@ -117,8 +111,6 @@ await respuesta.json();
 }
 
 
-
-// ELIMINAR BARBERO
 const eliminarBarbero = async (id)=>{
 
     const respuesta = await fetch(`http://localhost:4000/barberos/borrar/${id}`);
@@ -136,12 +128,7 @@ const eliminarBarbero = async (id)=>{
 return(
         <div className="barberos-admin-container">
 
-            <button
-                className="btn-volver"
-                onClick={()=>navigate("/admin")}
-            >
-            Ir al panel principal
-            </button>
+            <BotonVolver/>
 
         <h2 className="titulo-admin">Gestión de Barberos</h2>
 

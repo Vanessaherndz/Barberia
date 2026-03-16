@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AgendarCita.css";
 import { useNavigate } from "react-router-dom";
+import BotonInicio from "./volvercliente";
 
 
 function AgendarCita(){
@@ -98,10 +99,8 @@ function AgendarCita(){
     return(
 
         <div className="cita-container">
-
-            <button className="btn inicio" onClick={()=>navigate("/cliente")}>
-            Ir al Inicio
-            </button>
+            <BotonInicio/>
+          
 
             <h2>Reservar Cita</h2>
 

@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import "./servicios.css"
+import BotonVolver from "../components/botonvolver";
 
 function AdminServicios(){
 
-const navigate = useNavigate();
 
 const [servicios,setServicios] = useState([]);
 
@@ -30,7 +30,7 @@ cargarServicios();
 
 
 
-// AGREGAR SERVICIO
+
 const agregarServicio = async ()=>{
 
 const respuesta = await fetch("http://localhost:4000/servicios/crear",{
@@ -65,7 +65,7 @@ const data = await respuesta.json();
 
 
 
-// EDITAR
+
 const editarServicio = (servicio)=>{
 
     setNombre(servicio.nombre);
@@ -80,7 +80,6 @@ const editarServicio = (servicio)=>{
 
 
 
-// ACTUALIZAR
 const actualizarServicio = async ()=>{
 
 const respuesta = await fetch("http://localhost:4000/servicios/editar",{
@@ -135,117 +134,108 @@ cargarServicios();
 
 return(
 
-<div style={{padding:"40px"}}>
+    <div className="servicios-admin-container">
 
-<button
-    onClick={()=>navigate("/admin")}>
- Ir al panel principal
-</button>
+        <BotonVolver/>
 
-<h2>Gestión de Servicios</h2>
+    <h2 className="titulo-admin">Gestión de Servicios</h2>
+
+    <div className="form-servicio">
 
 <h3>{editando ? "Editar Servicio" : "Agregar Nuevo Servicio"}</h3>
 
+        <input
+            placeholder="Nombre del servicio"
+            value={nombre}
+            onChange={(e)=>setNombre(e.target.value)}
+            />
 
-<input
-    placeholder="Nombre del servicio"
-    value={nombre}
-    onChange={(e)=>setNombre(e.target.value)}
-/>
+        <input
+            type="number"
+            placeholder="Precio"
+            value={precio}
+            onChange={(e)=>setPrecio(e.target.value)}
+            />
 
-<br/><br/>
+        <input
+            placeholder="Descripción"
+            value={descripcion}
+            onChange={(e)=>setDescripcion(e.target.value)}
+            />
 
-<input
-    type="number"
-    placeholder="Precio"
-    value={precio}
-    onChange={(e)=>setPrecio(e.target.value)}
-/>
+    <button
+        className="btn-guardar"
+        onClick={editando ? actualizarServicio : agregarServicio}
+        >
 
-<br/><br/>
+        {editando ? "Actualizar Servicio" : "Agregar Servicio"}
 
-<input
-    placeholder="Descripción"
-    value={descripcion}
-    onChange={(e)=>setDescripcion(e.target.value)}
-/>
+    </button>
 
-<br/><br/>
-
-
-<button
-    onClick={editando ? actualizarServicio : agregarServicio}
->
-
-    {editando ? "Actualizar Servicio" : "Agregar Servicio"}
-
-</button>
+</div>
 
 
-<hr/>
+    <h3 className="titulo-tabla">Servicios Registrados</h3>
 
-<h3>Servicios Registrados</h3>
+     <div className="tabla-container">
 
+        <table className="tabla-servicios">
 
-<table border="1" cellPadding="10">
+            <thead>
 
-<thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
 
-    <tr>
-    <th>Nombre</th>
-    <th>Precio</th>
-    <th>Descripción</th>
-    <th>Editar</th>
-    <th>Eliminar</th>
-    </tr>
+            </thead>
 
-</thead>
+            <tbody>
 
+                {servicios.map(servicio=>(
 
-<tbody>
+                <tr key={servicio._id}>
 
-    {servicios.map(servicio=>(
+                    <td>{servicio.nombre}</td>
 
-<tr key={servicio._id}>
+                    <td className="precio">L {servicio.precio}</td>
 
-    <td>{servicio.nombre}</td>
+                    <td>{servicio.descripcion}</td>
 
-    <td>L {servicio.precio}</td>
+                    <td>
 
-    <td>{servicio.descripcion}</td>
+                    <button
+                        className="btn-editar"
+                        onClick={()=>editarServicio(servicio)}
+                        >
+                        Editar
+                    </button>
 
-<td>
+                    </td>
 
-<button
-    onClick={()=>editarServicio(servicio)}
->
+                    <td>
 
-    Editar
+                    <button
+                        className="btn-eliminar"
+                        onClick={()=>eliminarServicio(servicio._id)}
+                        >
+                        Eliminar
+                    </button>
 
-</button>
+                    </td>
 
-</td>
+                </tr>
 
+                ))}
 
-<td>
+            </tbody>
 
-<button
-    onClick={()=>eliminarServicio(servicio._id)}
-    >
+        </table>
 
-    Eliminar
-
-</button>
-
-</td>
-
-</tr>
-
-))}
-
-</tbody>
-
-</table>
+    </div>
 
 </div>
 
